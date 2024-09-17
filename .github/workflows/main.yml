@@ -1,0 +1,39 @@
+name: Checkov Scan
+
+on:
+  workflow_dispatch: # Allows manual trigger of the workflow
+
+jobs:
+  checkov_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python environment
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Step 3: Install Checkov
+      - name: Install Checkov
+        run: |
+          python -m pip install --upgrade pip
+          pip3 install checkov
+
+      # Step 4: Run Checkov to scan Terraform files
+      - name: Run Checkov Scan
+        run: |
+          checkov --version
+          ls -la ${{ github.workspace }}
+          checkov --directory ${{ github.workspace }} -o junitxml > ${{ github.workspace }}/result.xml || exit 0
+
+      # Step 5: Publish the Checkov test results
+      - name: Publish Checkov Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: checkov-results
+          path: ${{ github.workspace }}/result.xml
