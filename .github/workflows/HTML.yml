@@ -1,0 +1,38 @@
+name: Checkov Scan HTML
+
+on:
+  workflow_dispatch: # Allows manual trigger of the workflow
+
+jobs:
+  checkov_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Checkov
+        run: |
+          python -m pip install --upgrade pip
+          pip install checkov
+
+      # Run Checkov scan and generate HTML report
+      - name: Run Checkov Scan
+        run: |
+          checkov --directory ${{ github.workspace }} --output html > checkov_report.html || exit 0
+
+      # Deploy HTML report to GitHub Pages
+      - name: Deploy report to GitHub Pages
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "GitHub Actions"
+          git checkout -b gh-pages
+          cp checkov_report.html index.html
+          git add index.html
+          git commit -m "Update Checkov Report"
+          git push --force --set-upstream origin gh-pages
