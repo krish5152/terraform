@@ -1,4 +1,4 @@
-name: Checkov Scan
+name: Checkov Scan sarif
 
 on:
   workflow_dispatch:  # Allows manual trigger of the workflow
