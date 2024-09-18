@@ -1,0 +1,3685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkov_report.xml</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+    word-break: break-all;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    max-width: 200px;
+    word-wrap: break-word;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.toc {
+    list-style: none;
+}
+
+.toc li.outcome {
+    list-style: none;
+}
+
+.toc li.outcome::before {
+    content: "\2022";
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    width: 1.27em;
+    margin-left: -1.27em;
+    font-size: 1.2em;
+}
+
+.toc li.outcome-failed {
+    background-color: lightcoral;
+}
+
+.toc li.outcome-failed::before {
+    color: red;
+}
+
+.toc li.outcome-passed::before {
+    color: green;
+}
+
+.toc li.outcome-skipped::before {
+    color: orange;
+}
+
+.testcases .outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.testcases .outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+
+.outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.outcome-skipped {
+    border-left: 1em dotted silver;
+}
+
+.testcases .outcome-passed {
+    border-left: 1em solid lightgreen;
+}
+
+.testcases .outcome-skipped {
+    border-left: 1em solid #FED8B1;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+    
+<h1>
+    Test Report : checkov_report.xml
+</h1>
+
+
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+            
+                
+                <li>/terrform.hcl.aws_instance.InstanceNode
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#d839654a-fac7-414e-b329-206a19f6a82a">[NONE][CKV_AWS_88] EC2 instance should not have public IP.</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#d73e23c1-21a9-449c-80e0-35e40e4c1cd1">[NONE][CKV_AWS_46] Ensure no hard-coded secrets exist in EC2 user data</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#d8812c90-525b-4c5b-888f-fcf718b2b603">[NONE][CKV_AWS_79] Ensure Instance Metadata Service Version 1 is not enabled</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#364dc157-ebea-4682-9da4-78b87d60d0fb">[NONE][CKV_AWS_135] Ensure that EC2 is EBS optimized</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#3c676884-bd71-4c7d-8754-894f1ded09b9">[NONE][CKV_AWS_8] Ensure all data stored in the Launch configuration or instance Elastic Blocks Store is securely encrypted</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#1c885007-9ea9-47a8-ac13-07b44441e540">[NONE][CKV_AWS_126] Ensure that detailed monitoring is enabled for EC2 instances</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#6f0a9cfb-dd79-4e6b-9af7-4f2b3919154a">[NONE][CKV2_AWS_41] Ensure an IAM role is attached to EC2 instance</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/terrform.hcl.aws_security_group.InstanceNodeSG
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#3530b368-2fd6-407b-9e34-fb1e28e32a4c">[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#272fec5e-e2bf-45cb-affc-b29e1950b21c">[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#3da6e1b6-a427-43eb-9ab0-87f9fe9f28fa">[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#8aa35314-6da2-4f5e-852d-2264ba2f2cc9">[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#6189201f-dd36-4fd4-9e7c-2d8b429b2434">[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22</a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#38bcb669-55cb-41d6-b112-f9e66b629a06">[NONE][CKV_AWS_23] Ensure every security group and rule has a description</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+                
+                <li>/.github/workflows/main.yml.jobs(checkov_scan)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#58ade296-fc26-4beb-b80b-43e7771b90a6">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#50c75c17-9777-4f1d-9b30-fb9fa187247c">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#f977cdde-eb0a-4021-bd06-d3233807f8e9">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#b77a07b3-14b9-4f1d-88ec-5d2a48a7933a">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/main.yml.jobs
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#10d750e1-1b47-483b-9860-cb5efa1a4594">[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#48f165b5-a488-44ac-9402-67a81081cfb3">[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/main.yml.on(Checkov Scan)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#589ad19d-b481-4851-87a9-dab02f4fc838">[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. </a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#38f27c3b-17b6-48e1-9c0f-2c9d877c3ea4">[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/main.yml.jobs(checkov_scan).steps[1](Checkout repository)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#3c13bb0f-aa07-42ed-8a90-8f04188f277a">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#94325a89-2e9c-4c2a-a3ee-c32e4758deb0">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#513e8902-6f90-4b1f-b191-d1c6cf9a822c">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#4a90c2ab-6a98-4934-852a-cb08efd0cb53">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/main.yml.jobs(checkov_scan).steps[2](Set up Python 3.x)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#c0e5c9d6-caf2-430d-9976-ac2fa6d91f83">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#37df0d53-d866-414e-b2df-d907945bd747">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#5242d77c-509c-42f6-b814-86d1c6256489">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#63fa9554-660a-40b3-96b0-7e4fd69d351d">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/main.yml.jobs(checkov_scan).steps[3](Install Checkov)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#209cd7fa-aff3-4512-9590-5374000075b6">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#57221ec1-09fe-453d-951b-6957bc75bc26">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#66da7cf8-4fa6-4258-aed6-219dc2e0839e">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#77b31739-98ac-4fb3-bd25-3eb4defff346">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/main.yml.jobs(checkov_scan).steps[4](Run Checkov Scan)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#7f67b6fb-e681-4a9e-817f-344cc147dcb6">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#3adc5c36-c823-45e0-b0f2-e7a1218601cd">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#0f971c54-1df9-4659-87b1-f92718ee430b">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#e6d58b33-a611-483b-b6a6-dc12ff98bc28">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/main.yml.jobs(checkov_scan).steps[5](Publish Checkov HTML Report)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#54b24132-a55d-491c-b870-85e583a2ce21">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#c80cab99-ee38-4d3a-9560-e392e8684286">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#c831fc0b-f867-48fa-8406-ecc3b909a43c">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#1489d02d-b73f-4bc6-b5d9-630395a49772">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/HTML.yml.jobs(checkov_scan)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#0295a2db-65f8-4613-a50a-3df5e664a2a5">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#81856cf3-db63-48fc-b517-570da9ad23ee">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#05dac7e7-795e-4e00-9a0c-83ebdadfbb90">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#f1b3330c-4bd3-4f0b-b26f-97ac8c41f670">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/HTML.yml.jobs
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#554941be-a8d6-40da-be40-3c8be38626d9">[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#6f4504f4-df51-4556-be23-5d181971528a">[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/HTML.yml.on(Checkov Scan HTML)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#b3c5dbf0-055e-4e9c-86ed-775d7832ff89">[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. </a></li>
+                    
+                    <li class="outcome outcome-failed"><a href="#c1a3642c-18c2-4daf-a53c-8b317d9a8e8c">[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[1](Checkout repository)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#4944870f-dd86-4bf1-890a-02efb05ec558">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#8a05ceac-404c-4192-912c-74611a270119">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#7a8dbf55-8bd3-4475-bab6-708c3a9ec51f">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#5b191909-42da-4720-bb1e-f5618ca2a134">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[2](Set up Python 3.x)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#07a0c525-9c16-4387-959e-7e721162a674">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#f87b2014-38ae-4ff0-9188-913c36848533">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#1e054cfc-8652-4095-869d-dedad6d96c68">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#6f11b4c3-61ca-4a57-89bb-673c41332572">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[3](Install Checkov)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#668cc9b1-85b9-42f3-899b-227ebdb23221">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#f2743108-bcae-4801-8848-d9a30ed08d3e">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#8c611320-9148-4b1b-94e0-b0fac88b906f">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#57d26396-e0c5-4d2d-9ca0-78fa0d0aa183">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[4](Run Checkov Scan)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#3abf97d1-3ff2-49d2-b959-ffb4f88a10d1">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#dc598615-7ac1-4d23-983c-0378d4ff2010">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#e08ffafb-920c-4ec0-b34d-493da784bc3d">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#cd4981ae-dc94-4a5e-9afc-4e060d8aefd2">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[5](Convert XML to HTML)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#7975e185-1d87-47ee-84b5-f1a7a510927d">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#a5e52ce7-a17e-432f-82ca-f41496cb3547">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#43037b36-2a9c-4082-b944-238b26d7a788">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#680d0eae-a945-444e-8b6e-c46e7b92961d">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[6](Deploy report to GitHub Pages)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#24054520-4a17-46c2-896a-fdd66677e0a9">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#82545026-4ef7-4a65-88cb-bf24d3e2674d">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#9725f142-92c0-4295-bcd9-1a6692de16e1">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#b6d2dcf0-65e5-4ae4-8696-d5d0643113a5">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.jobs(checkov_scan)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#f354449e-d182-4931-a869-43b2dfcd7881">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#94e43956-52ec-4a6a-91a3-37235a3d524f">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#5f656d8f-8647-424e-94fa-221f5467e723">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#4d8e20bd-bd39-4c87-814e-815f82adc1c8">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.jobs
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#342a5215-0f94-41d4-afa6-373d234fdef4">[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#a4fa1f4a-353b-401c-9bea-db1cfd5006d5">[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.on(Checkov Scan sarif)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#b6466198-a442-4dbb-8143-f657dab16c1a">[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. </a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#330a2b2b-080b-43b9-8235-f7e887624c8c">[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[1](Checkout repository)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#32627a82-f686-4aad-8c7d-5da5b1cf66c8">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#d63c9b99-beb9-423d-872d-6e14717bcb0b">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#6172cbba-8ef9-49b5-b696-5d6d3d65bfea">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#b9be9d6e-c530-429c-b20d-926e101dc137">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[2](Set up Python 3.x)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#c636072d-3028-411d-89b6-3c1e62a493eb">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#a7bcebd8-5126-49d4-aa06-8302ee9cf08d">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#9dbaacba-3fb0-4a23-b5a4-30a55e3d2700">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#c486b9ce-7f7a-407e-b772-8a3f0b2269c2">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[3](Install Checkov)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#d244e684-9f86-4f27-875e-b414ea831434">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#26a5e448-78c1-4136-9f60-a0488a357578">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#e6a7064a-0ef7-4c37-80a3-06ff07218a0e">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#d60eed00-2f9b-431b-992f-546943488d9c">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[4](Run Checkov Scan and generate JUnit XML report)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#a4b534f5-d58b-4167-99a7-f4d33d1b9608">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#ab5b4905-6dfc-4211-b299-c75dab66f74f">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#47cc227b-e33d-456a-8930-bfdbab8aa459">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#950942aa-69c4-4e30-8dee-88e7da24f0a4">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[5](Print SARIF file for debugging)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#41a7d158-53a5-46c1-92b1-6623719fe7b3">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#d11ea162-c92b-4443-96d7-cb539192b149">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#dd0c50cf-3f73-4bc5-8adf-67377d6456f3">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#4815f62d-d2d5-4f1d-9db0-e107390e2a37">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[6](Convert JUnit XML to SARIF)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#c51ef2f7-dfba-4286-ac82-777593a92177">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#fa96937d-946c-4c37-812a-740674e81c9f">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#9defdb7c-6086-4ae7-88fa-e52b6ba85559">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#e0c710bb-be0f-46fc-9c7a-9d9da647caec">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+                <li>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[7](Upload SARIF to GitHub Code Scanning)
+                <ul>
+                    
+                    <li class="outcome outcome-passed"><a href="#d9844fd2-6883-454a-bce3-a8a993ff349a">[NONE][CKV_GHA_3] Suspicious use of curl with secrets</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#b09bc075-e0f4-408e-b269-1ccef115c338">[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#5f190ee5-d404-49ac-912f-6ab744ec0c9a">[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</a></li>
+                    
+                    <li class="outcome outcome-passed"><a href="#1044bf1e-6b07-465d-bf73-5423cf6ad08f">[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</a></li>
+                    
+                </ul>
+                </li>
+                
+            
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+            
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="#d8812c90-525b-4c5b-888f-fcf718b2b603">[F] /terrform.hcl.aws_instance.InstanceNode : [NONE][CKV_AWS_79] Ensure Instance Metadata Service Version 1 is not enabled</a></li>
+                    
+                    
+                    
+                    <li><a href="#364dc157-ebea-4682-9da4-78b87d60d0fb">[F] /terrform.hcl.aws_instance.InstanceNode : [NONE][CKV_AWS_135] Ensure that EC2 is EBS optimized</a></li>
+                    
+                    
+                    
+                    <li><a href="#3c676884-bd71-4c7d-8754-894f1ded09b9">[F] /terrform.hcl.aws_instance.InstanceNode : [NONE][CKV_AWS_8] Ensure all data stored in the Launch configuration or instance Elastic Blocks Store is securely encrypted</a></li>
+                    
+                    
+                    
+                    <li><a href="#1c885007-9ea9-47a8-ac13-07b44441e540">[F] /terrform.hcl.aws_instance.InstanceNode : [NONE][CKV_AWS_126] Ensure that detailed monitoring is enabled for EC2 instances</a></li>
+                    
+                    
+                    
+                    <li><a href="#6f0a9cfb-dd79-4e6b-9af7-4f2b3919154a">[F] /terrform.hcl.aws_instance.InstanceNode : [NONE][CKV2_AWS_41] Ensure an IAM role is attached to EC2 instance</a></li>
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="#8aa35314-6da2-4f5e-852d-2264ba2f2cc9">[F] /terrform.hcl.aws_security_group.InstanceNodeSG : [NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80</a></li>
+                    
+                    
+                    
+                    <li><a href="#6189201f-dd36-4fd4-9e7c-2d8b429b2434">[F] /terrform.hcl.aws_security_group.InstanceNodeSG : [NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22</a></li>
+                    
+                    
+                    
+                    <li><a href="#38bcb669-55cb-41d6-b112-f9e66b629a06">[F] /terrform.hcl.aws_security_group.InstanceNodeSG : [NONE][CKV_AWS_23] Ensure every security group and rule has a description</a></li>
+                    
+                    
+                
+            
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    <li><a href="#38f27c3b-17b6-48e1-9c0f-2c9d877c3ea4">[F] /.github/workflows/main.yml.on(Checkov Scan) : [NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all</a></li>
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    <li><a href="#c1a3642c-18c2-4daf-a53c-8b317d9a8e8c">[F] /.github/workflows/HTML.yml.on(Checkov Scan HTML) : [NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all</a></li>
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+            
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+
+    <div class="testsuite">
+        <h2>Test Suite: terraform scan</h2>
+        <a id="8baf462d-88c7-425a-b962-de9d46d2f254"></a>
+        
+        
+        <h3>Suite Properties</h3>
+        <table class="proplist">
+            
+            <tr>
+                <th>directory</th><td>[&#39;/home/runner/work/terraform/terraform&#39;]</td>
+            </tr>
+            
+            <tr>
+                <th>add_check</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>list</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>output</th><td>[&#39;junitxml&#39;]</td>
+            </tr>
+            
+            <tr>
+                <th>output_bc_ids</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>include_all_checkov_policies</th><td>True</td>
+            </tr>
+            
+            <tr>
+                <th>quiet</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>compact</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>framework</th><td>[&#39;all&#39;]</td>
+            </tr>
+            
+            <tr>
+                <th>skip_framework</th><td>[]</td>
+            </tr>
+            
+            <tr>
+                <th>run_all_external_checks</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>soft_fail</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>skip_results_upload</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>repo_id</th><td>cli_repo/terraform</td>
+            </tr>
+            
+            <tr>
+                <th>branch</th><td>master</td>
+            </tr>
+            
+            <tr>
+                <th>skip_download</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>use_enforcement_rules</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>download_external_modules</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>external_modules_download_path</th><td>.external_modules</td>
+            </tr>
+            
+            <tr>
+                <th>evaluate_variables</th><td>True</td>
+            </tr>
+            
+            <tr>
+                <th>no_cert_verify</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>create_baseline</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>output_baseline_as_skipped</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>secrets_scan_file_type</th><td>[]</td>
+            </tr>
+            
+            <tr>
+                <th>enable_secret_scan_all_files</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>block_list_secret_scan</th><td>[]</td>
+            </tr>
+            
+            <tr>
+                <th>summary_position</th><td>top</td>
+            </tr>
+            
+            <tr>
+                <th>skip_resources_without_violations</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>deep_analysis</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>no_fail_on_crash</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>mask</th><td>defaultdict(&lt;class &#39;set&#39;&gt;, {})</td>
+            </tr>
+            
+            <tr>
+                <th>scan_secrets_history</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>secrets_history_timeout</th><td>12h</td>
+            </tr>
+            
+            <tr>
+                <th>custom_tool_name</th><td>Checkov</td>
+            </tr>
+            
+        </table>
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>0.0 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>13</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>8</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>/terrform.hcl.aws_instance.InstanceNode</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d839654a-fac7-414e-b329-206a19f6a82a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_88] EC2 instance should not have public IP.</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d73e23c1-21a9-449c-80e0-35e40e4c1cd1"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_46] Ensure no hard-coded secrets exist in EC2 user data</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="d8812c90-525b-4c5b-888f-fcf718b2b603"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_79] Ensure Instance Metadata Service Version 1 is not enabled</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure Instance Metadata Service Version 1 is not enabled</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: aws_instance.InstanceNode
+File: /terrform.hcl: 26-40
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-31
+
+		26 | resource &#34;aws_instance&#34; &#34;InstanceNode&#34; {
+		27 |   ami           = &#34;ami-07650ecb0de9bd731&#34;
+		28 |   instance_type = &#34;t3.micro&#34;
+		29 |   key_name      = var.KEY
+		30 |   user_data     = &lt;&lt;-EOT
+		31 |     #!/bin/bash -xe
+		32 |     yum update -y
+		33 |     yum install -y httpd
+		34 |     systemctl start httpd
+		35 |     systemctl enable httpd
+		36 |     echo &#34;Hello, World!&#34; &gt; /var/www/html/index.html
+		37 |   EOT
+		38 | 
+		39 |   security_group = aws_security_group.InstanceNodeSG.id
+		40 | }
+</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="364dc157-ebea-4682-9da4-78b87d60d0fb"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_135] Ensure that EC2 is EBS optimized</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure that EC2 is EBS optimized</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: aws_instance.InstanceNode
+File: /terrform.hcl: 26-40
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-ec2-is-ebs-optimized
+
+		26 | resource &#34;aws_instance&#34; &#34;InstanceNode&#34; {
+		27 |   ami           = &#34;ami-07650ecb0de9bd731&#34;
+		28 |   instance_type = &#34;t3.micro&#34;
+		29 |   key_name      = var.KEY
+		30 |   user_data     = &lt;&lt;-EOT
+		31 |     #!/bin/bash -xe
+		32 |     yum update -y
+		33 |     yum install -y httpd
+		34 |     systemctl start httpd
+		35 |     systemctl enable httpd
+		36 |     echo &#34;Hello, World!&#34; &gt; /var/www/html/index.html
+		37 |   EOT
+		38 | 
+		39 |   security_group = aws_security_group.InstanceNodeSG.id
+		40 | }
+</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="3c676884-bd71-4c7d-8754-894f1ded09b9"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_8] Ensure all data stored in the Launch configuration or instance Elastic Blocks Store is securely encrypted</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure all data stored in the Launch configuration or instance Elastic Blocks Store is securely encrypted</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: aws_instance.InstanceNode
+File: /terrform.hcl: 26-40
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-13
+
+		26 | resource &#34;aws_instance&#34; &#34;InstanceNode&#34; {
+		27 |   ami           = &#34;ami-07650ecb0de9bd731&#34;
+		28 |   instance_type = &#34;t3.micro&#34;
+		29 |   key_name      = var.KEY
+		30 |   user_data     = &lt;&lt;-EOT
+		31 |     #!/bin/bash -xe
+		32 |     yum update -y
+		33 |     yum install -y httpd
+		34 |     systemctl start httpd
+		35 |     systemctl enable httpd
+		36 |     echo &#34;Hello, World!&#34; &gt; /var/www/html/index.html
+		37 |   EOT
+		38 | 
+		39 |   security_group = aws_security_group.InstanceNodeSG.id
+		40 | }
+</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="1c885007-9ea9-47a8-ac13-07b44441e540"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_126] Ensure that detailed monitoring is enabled for EC2 instances</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure that detailed monitoring is enabled for EC2 instances</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: aws_instance.InstanceNode
+File: /terrform.hcl: 26-40
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/ensure-that-detailed-monitoring-is-enabled-for-ec2-instances
+
+		26 | resource &#34;aws_instance&#34; &#34;InstanceNode&#34; {
+		27 |   ami           = &#34;ami-07650ecb0de9bd731&#34;
+		28 |   instance_type = &#34;t3.micro&#34;
+		29 |   key_name      = var.KEY
+		30 |   user_data     = &lt;&lt;-EOT
+		31 |     #!/bin/bash -xe
+		32 |     yum update -y
+		33 |     yum install -y httpd
+		34 |     systemctl start httpd
+		35 |     systemctl enable httpd
+		36 |     echo &#34;Hello, World!&#34; &gt; /var/www/html/index.html
+		37 |   EOT
+		38 | 
+		39 |   security_group = aws_security_group.InstanceNodeSG.id
+		40 | }
+</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="6f0a9cfb-dd79-4e6b-9af7-4f2b3919154a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV2_AWS_41] Ensure an IAM role is attached to EC2 instance</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure an IAM role is attached to EC2 instance</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: aws_instance.InstanceNode
+File: /terrform.hcl: 26-40
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-an-iam-role-is-attached-to-ec2-instance
+
+		26 | resource &#34;aws_instance&#34; &#34;InstanceNode&#34; {
+		27 |   ami           = &#34;ami-07650ecb0de9bd731&#34;
+		28 |   instance_type = &#34;t3.micro&#34;
+		29 |   key_name      = var.KEY
+		30 |   user_data     = &lt;&lt;-EOT
+		31 |     #!/bin/bash -xe
+		32 |     yum update -y
+		33 |     yum install -y httpd
+		34 |     systemctl start httpd
+		35 |     systemctl enable httpd
+		36 |     echo &#34;Hello, World!&#34; &gt; /var/www/html/index.html
+		37 |   EOT
+		38 | 
+		39 |   security_group = aws_security_group.InstanceNodeSG.id
+		40 | }
+</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/terrform.hcl.aws_security_group.InstanceNodeSG</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="3530b368-2fd6-407b-9e34-fb1e28e32a4c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="272fec5e-e2bf-45cb-affc-b29e1950b21c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="3da6e1b6-a427-43eb-9ab0-87f9fe9f28fa"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="8aa35314-6da2-4f5e-852d-2264ba2f2cc9"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure no security groups allow ingress from 0.0.0.0:0 to port 80</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: aws_security_group.InstanceNodeSG
+File: /terrform.hcl: 43-60
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80
+
+		43 | resource &#34;aws_security_group&#34; &#34;InstanceNodeSG&#34; {
+		44 |   name        = &#34;InstanceNodeSG&#34;
+		45 |   description = &#34;Enable SSH and HTTP&#34;
+		46 | 
+		47 |   ingress {
+		48 |     from_port   = 22
+		49 |     to_port     = 22
+		50 |     protocol    = &#34;tcp&#34;
+		51 |     cidr_blocks = [&#34;0.0.0.0/0&#34;]
+		52 |   }
+		53 | 
+		54 |   ingress {
+		55 |     from_port   = 80
+		56 |     to_port     = 80
+		57 |     protocol    = &#34;tcp&#34;
+		58 |     cidr_blocks = [&#34;0.0.0.0/0&#34;]
+		59 |   }
+		60 | }
+</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="6189201f-dd36-4fd4-9e7c-2d8b429b2434"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure no security groups allow ingress from 0.0.0.0:0 to port 22</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: aws_security_group.InstanceNodeSG
+File: /terrform.hcl: 43-60
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-1-port-security
+
+		43 | resource &#34;aws_security_group&#34; &#34;InstanceNodeSG&#34; {
+		44 |   name        = &#34;InstanceNodeSG&#34;
+		45 |   description = &#34;Enable SSH and HTTP&#34;
+		46 | 
+		47 |   ingress {
+		48 |     from_port   = 22
+		49 |     to_port     = 22
+		50 |     protocol    = &#34;tcp&#34;
+		51 |     cidr_blocks = [&#34;0.0.0.0/0&#34;]
+		52 |   }
+		53 | 
+		54 |   ingress {
+		55 |     from_port   = 80
+		56 |     to_port     = 80
+		57 |     protocol    = &#34;tcp&#34;
+		58 |     cidr_blocks = [&#34;0.0.0.0/0&#34;]
+		59 |   }
+		60 | }
+</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="38bcb669-55cb-41d6-b112-f9e66b629a06"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_AWS_23] Ensure every security group and rule has a description</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure every security group and rule has a description</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: aws_security_group.InstanceNodeSG
+File: /terrform.hcl: 43-60
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-31
+
+		43 | resource &#34;aws_security_group&#34; &#34;InstanceNodeSG&#34; {
+		44 |   name        = &#34;InstanceNodeSG&#34;
+		45 |   description = &#34;Enable SSH and HTTP&#34;
+		46 | 
+		47 |   ingress {
+		48 |     from_port   = 22
+		49 |     to_port     = 22
+		50 |     protocol    = &#34;tcp&#34;
+		51 |     cidr_blocks = [&#34;0.0.0.0/0&#34;]
+		52 |   }
+		53 | 
+		54 |   ingress {
+		55 |     from_port   = 80
+		56 |     to_port     = 80
+		57 |     protocol    = &#34;tcp&#34;
+		58 |     cidr_blocks = [&#34;0.0.0.0/0&#34;]
+		59 |   }
+		60 | }
+</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div class="testsuite">
+        <h2>Test Suite: github_actions scan</h2>
+        <a id="01ef5cb0-6bb0-4bb4-9964-127733b42452"></a>
+        
+        
+        <h3>Suite Properties</h3>
+        <table class="proplist">
+            
+            <tr>
+                <th>directory</th><td>[&#39;/home/runner/work/terraform/terraform&#39;]</td>
+            </tr>
+            
+            <tr>
+                <th>add_check</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>list</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>output</th><td>[&#39;junitxml&#39;]</td>
+            </tr>
+            
+            <tr>
+                <th>output_bc_ids</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>include_all_checkov_policies</th><td>True</td>
+            </tr>
+            
+            <tr>
+                <th>quiet</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>compact</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>framework</th><td>[&#39;all&#39;]</td>
+            </tr>
+            
+            <tr>
+                <th>skip_framework</th><td>[]</td>
+            </tr>
+            
+            <tr>
+                <th>run_all_external_checks</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>soft_fail</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>skip_results_upload</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>repo_id</th><td>cli_repo/terraform</td>
+            </tr>
+            
+            <tr>
+                <th>branch</th><td>master</td>
+            </tr>
+            
+            <tr>
+                <th>skip_download</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>use_enforcement_rules</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>download_external_modules</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>external_modules_download_path</th><td>.external_modules</td>
+            </tr>
+            
+            <tr>
+                <th>evaluate_variables</th><td>True</td>
+            </tr>
+            
+            <tr>
+                <th>no_cert_verify</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>create_baseline</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>output_baseline_as_skipped</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>secrets_scan_file_type</th><td>[]</td>
+            </tr>
+            
+            <tr>
+                <th>enable_secret_scan_all_files</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>block_list_secret_scan</th><td>[]</td>
+            </tr>
+            
+            <tr>
+                <th>summary_position</th><td>top</td>
+            </tr>
+            
+            <tr>
+                <th>skip_resources_without_violations</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>deep_analysis</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>no_fail_on_crash</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>mask</th><td>defaultdict(&lt;class &#39;set&#39;&gt;, {})</td>
+            </tr>
+            
+            <tr>
+                <th>scan_secrets_history</th><td>False</td>
+            </tr>
+            
+            <tr>
+                <th>secrets_history_timeout</th><td>12h</td>
+            </tr>
+            
+            <tr>
+                <th>custom_tool_name</th><td>Checkov</td>
+            </tr>
+            
+        </table>
+        
+        <h3>Results</h3>
+        <table class="proplist">
+            <tr>
+                <th>Duration</th><td>0.0 sec</td>
+            </tr>
+            <tr>
+                <th>Tests</th><td>96</td>
+            </tr>
+            <tr>
+                <th>Failures</th><td>2</td>
+            </tr>
+        </table>
+
+        <div class="testclasses">
+            <h3>Tests</h3>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/main.yml.jobs(checkov_scan)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="58ade296-fc26-4beb-b80b-43e7771b90a6"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="50c75c17-9777-4f1d-9b30-fb9fa187247c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="f977cdde-eb0a-4021-bd06-d3233807f8e9"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b77a07b3-14b9-4f1d-88ec-5d2a48a7933a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/main.yml.jobs</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="10d750e1-1b47-483b-9860-cb5efa1a4594"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="48f165b5-a488-44ac-9402-67a81081cfb3"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/main.yml.on(Checkov Scan)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="589ad19d-b481-4851-87a9-dab02f4fc838"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. </b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="38f27c3b-17b6-48e1-9c0f-2c9d877c3ea4"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure top-level permissions are not set to write-all</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: on(Checkov Scan)
+File: /.github/workflows/main.yml: 0-1
+Guideline: None</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/main.yml.jobs(checkov_scan).steps[1](Checkout repository)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="3c13bb0f-aa07-42ed-8a90-8f04188f277a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="94325a89-2e9c-4c2a-a3ee-c32e4758deb0"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="513e8902-6f90-4b1f-b191-d1c6cf9a822c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="4a90c2ab-6a98-4934-852a-cb08efd0cb53"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/main.yml.jobs(checkov_scan).steps[2](Set up Python 3.x)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="c0e5c9d6-caf2-430d-9976-ac2fa6d91f83"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="37df0d53-d866-414e-b2df-d907945bd747"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="5242d77c-509c-42f6-b814-86d1c6256489"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="63fa9554-660a-40b3-96b0-7e4fd69d351d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/main.yml.jobs(checkov_scan).steps[3](Install Checkov)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="209cd7fa-aff3-4512-9590-5374000075b6"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="57221ec1-09fe-453d-951b-6957bc75bc26"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="66da7cf8-4fa6-4258-aed6-219dc2e0839e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="77b31739-98ac-4fb3-bd25-3eb4defff346"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/main.yml.jobs(checkov_scan).steps[4](Run Checkov Scan)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="7f67b6fb-e681-4a9e-817f-344cc147dcb6"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="3adc5c36-c823-45e0-b0f2-e7a1218601cd"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="0f971c54-1df9-4659-87b1-f92718ee430b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="e6d58b33-a611-483b-b6a6-dc12ff98bc28"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/main.yml.jobs(checkov_scan).steps[5](Publish Checkov HTML Report)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="54b24132-a55d-491c-b870-85e583a2ce21"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="c80cab99-ee38-4d3a-9560-e392e8684286"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="c831fc0b-f867-48fa-8406-ecc3b909a43c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="1489d02d-b73f-4bc6-b5d9-630395a49772"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/HTML.yml.jobs(checkov_scan)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="0295a2db-65f8-4613-a50a-3df5e664a2a5"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="81856cf3-db63-48fc-b517-570da9ad23ee"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="05dac7e7-795e-4e00-9a0c-83ebdadfbb90"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="f1b3330c-4bd3-4f0b-b26f-97ac8c41f670"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/HTML.yml.jobs</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="554941be-a8d6-40da-be40-3c8be38626d9"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="6f4504f4-df51-4556-be23-5d181971528a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/HTML.yml.on(Checkov Scan HTML)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b3c5dbf0-055e-4e9c-86ed-775d7832ff89"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. </b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-failed">
+                        <a id="c1a3642c-18c2-4daf-a53c-8b317d9a8e8c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all</b></td></tr>
+                            <tr><th>Outcome:</th><td>Failed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                            <tr><th>Failed</th><td>Ensure top-level permissions are not set to write-all</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        <pre>
+Resource: on(Checkov Scan HTML)
+File: /.github/workflows/HTML.yml: 9-10
+Guideline: None</pre>
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[1](Checkout repository)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="4944870f-dd86-4bf1-890a-02efb05ec558"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="8a05ceac-404c-4192-912c-74611a270119"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="7a8dbf55-8bd3-4475-bab6-708c3a9ec51f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="5b191909-42da-4720-bb1e-f5618ca2a134"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[2](Set up Python 3.x)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="07a0c525-9c16-4387-959e-7e721162a674"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="f87b2014-38ae-4ff0-9188-913c36848533"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="1e054cfc-8652-4095-869d-dedad6d96c68"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="6f11b4c3-61ca-4a57-89bb-673c41332572"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[3](Install Checkov)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="668cc9b1-85b9-42f3-899b-227ebdb23221"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="f2743108-bcae-4801-8848-d9a30ed08d3e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="8c611320-9148-4b1b-94e0-b0fac88b906f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="57d26396-e0c5-4d2d-9ca0-78fa0d0aa183"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[4](Run Checkov Scan)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="3abf97d1-3ff2-49d2-b959-ffb4f88a10d1"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="dc598615-7ac1-4d23-983c-0378d4ff2010"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="e08ffafb-920c-4ec0-b34d-493da784bc3d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="cd4981ae-dc94-4a5e-9afc-4e060d8aefd2"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[5](Convert XML to HTML)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="7975e185-1d87-47ee-84b5-f1a7a510927d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="a5e52ce7-a17e-432f-82ca-f41496cb3547"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="43037b36-2a9c-4082-b944-238b26d7a788"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="680d0eae-a945-444e-8b6e-c46e7b92961d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/HTML.yml.jobs(checkov_scan).steps[6](Deploy report to GitHub Pages)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="24054520-4a17-46c2-896a-fdd66677e0a9"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="82545026-4ef7-4a65-88cb-bf24d3e2674d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="9725f142-92c0-4295-bcd9-1a6692de16e1"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b6d2dcf0-65e5-4ae4-8696-d5d0643113a5"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.jobs(checkov_scan)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="f354449e-d182-4931-a869-43b2dfcd7881"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="94e43956-52ec-4a6a-91a3-37235a3d524f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="5f656d8f-8647-424e-94fa-221f5467e723"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="4d8e20bd-bd39-4c87-814e-815f82adc1c8"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.jobs</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="342a5215-0f94-41d4-afa6-373d234fdef4"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="a4fa1f4a-353b-401c-9bea-db1cfd5006d5"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.on(Checkov Scan sarif)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b6466198-a442-4dbb-8143-f657dab16c1a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. </b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="330a2b2b-080b-43b9-8235-f7e887624c8c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[1](Checkout repository)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="32627a82-f686-4aad-8c7d-5da5b1cf66c8"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d63c9b99-beb9-423d-872d-6e14717bcb0b"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="6172cbba-8ef9-49b5-b696-5d6d3d65bfea"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b9be9d6e-c530-429c-b20d-926e101dc137"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[2](Set up Python 3.x)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="c636072d-3028-411d-89b6-3c1e62a493eb"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="a7bcebd8-5126-49d4-aa06-8302ee9cf08d"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="9dbaacba-3fb0-4a23-b5a4-30a55e3d2700"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="c486b9ce-7f7a-407e-b772-8a3f0b2269c2"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[3](Install Checkov)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d244e684-9f86-4f27-875e-b414ea831434"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="26a5e448-78c1-4136-9f60-a0488a357578"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="e6a7064a-0ef7-4c37-80a3-06ff07218a0e"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d60eed00-2f9b-431b-992f-546943488d9c"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[4](Run Checkov Scan and generate JUnit XML report)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="a4b534f5-d58b-4167-99a7-f4d33d1b9608"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="ab5b4905-6dfc-4211-b299-c75dab66f74f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="47cc227b-e33d-456a-8930-bfdbab8aa459"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="950942aa-69c4-4e30-8dee-88e7da24f0a4"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[5](Print SARIF file for debugging)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="41a7d158-53a5-46c1-92b1-6623719fe7b3"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d11ea162-c92b-4443-96d7-cb539192b149"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="dd0c50cf-3f73-4bc5-8adf-67377d6456f3"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="4815f62d-d2d5-4f1d-9db0-e107390e2a37"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[6](Convert JUnit XML to SARIF)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="c51ef2f7-dfba-4286-ac82-777593a92177"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="fa96937d-946c-4c37-812a-740674e81c9f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="9defdb7c-6086-4ae7-88fa-e52b6ba85559"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="e0c710bb-be0f-46fc-9c7a-9d9da647caec"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+            <div class="testclass">
+                <h4>/.github/workflows/sarif.yml.jobs(checkov_scan).steps[7](Upload SARIF to GitHub Code Scanning)</h4>
+                <div class="testcases">
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="d9844fd2-6883-454a-bce3-a8a993ff349a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_3] Suspicious use of curl with secrets</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="b09bc075-e0f4-408e-b269-1ccef115c338"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="5f190ee5-d404-49ac-912f-6ab744ec0c9a"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn&#39;t true on environment variables</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                    <div class="test outcome outcome-passed">
+                        <a id="1044bf1e-6b07-465d-bf73-5423cf6ad08f"></a>
+                        <table class="proplist">
+                            <tr><th>Test case:</th><td><b>[NONE][CKV_GHA_4] Suspicious use of netcat with IP address</b></td></tr>
+                            <tr><th>Outcome:</th><td>Passed</td></tr>
+                            <tr><th>Duration:</th><td>0.0 sec</td></tr>
+                        
+                        
+                        </table>
+
+                        
+                        
+
+                        
+                        
+                        
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>
