@@ -1,0 +1,36 @@
+name: Checkov Scan
+
+on:
+  workflow_dispatch: # Allows manual trigger of the workflow
+
+jobs:
+  checkov_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python environment
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Step 3: Install Checkov
+      - name: Install Checkov
+        run: |
+          python -m pip install --upgrade pip
+          pip install checkov
+
+      # Step 4: Run Checkov and output SARIF format
+      - name: Run Checkov Scan and generate SARIF report
+        run: |
+          checkov --directory ${{ github.workspace }} --output sarif > checkov-results.sarif || exit 0
+
+      # Step 5: Upload SARIF file to GitHub Security Dashboard
+      - name: Upload SARIF to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: checkov-results.sarif
