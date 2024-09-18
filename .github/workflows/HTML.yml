@@ -25,7 +25,7 @@ jobs:
       # Run Checkov scan and generate HTML report
       - name: Run Checkov Scan
         run: |
-          checkov --directory ${{ github.workspace }} --output html > checkov_report.html || exit 0
+          checkov --directory ${{ github.workspace }} --output xml > checkov_report.xml || exit 0
 
       # Deploy HTML report to GitHub Pages
       - name: Deploy report to GitHub Pages
@@ -33,7 +33,7 @@ jobs:
           git config --global user.email "you@example.com"
           git config --global user.name "GitHub Actions"
           git checkout -b gh-pages
-          cp checkov_report.html index.html
+          cp checkov_report.xml index.html
           git add index.html
           git commit -m "Update Checkov Report"
           git push --force --set-upstream origin gh-pages
