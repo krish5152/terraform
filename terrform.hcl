@@ -99,7 +99,7 @@ output "RouteTableId" {
   value       = aws_instance.InstanceNode.vpc_id
 }
 
-output "SecurityGroupId" {
+outpu "SecurityGroupId" {
   description = "Security Group ID"
   value       = aws_security_group.InstanceNodeSG.id
 }
