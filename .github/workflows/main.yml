@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: checkov-results
-          path: ${{ github.workspace }}/result.xml
+          path: ${{ github.workspace }}/result.html
