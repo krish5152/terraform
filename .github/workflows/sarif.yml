@@ -1,8 +1,9 @@
-name: Checkov Scan
+name: Checkov Scan sarif
 
 on:
   workflow_dispatch: # Allows manual trigger of the workflow
-
+permissions:
+  security-events: write
 jobs:
   checkov_scan:
     runs-on: ubuntu-latest
